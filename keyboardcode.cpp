@@ -11,15 +11,31 @@
  * Created on February 23, 2016, 9:44 PM
  */
 
-#include <cstdlib>
+#include <iostream>
+#include <exception>
 
-using namespace std;
+#include <utilities.h>
 
-/*
+#include "KCLLexer.hpp"
+#include "KCLParser.hpp"
+
+using namespace pointer;
+
+/**
+ * The entry point into the compiler.
  * 
+ * Usage:
+ *     keyboardcode filename_to_compile
  */
-int main(int argc, char** argv) {
-
-    return 0;
+int main(int argc, char** argv)
+{   
+    try {
+        Parser parser = getParser(getLexer("a"));
+        SP<SyntaxTree> tree(parser.createSyntaxTree());
+        tree->print("");        
+    }
+    catch (std::exception& ex) {
+        std::cout << ex.what() << "\n";
+    }
 }
 

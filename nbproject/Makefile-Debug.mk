@@ -52,11 +52,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-L../../CodeBlocks/LittleLLVM/bin/Debug ../../CodeBlocks/LittleLLVM/bin/Debug/libCompilerFrameworkInCPP.a
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/keyboardcodelang.exe
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/keyboardcodelang.exe: ../../CodeBlocks/LittleLLVM/bin/Debug/libCompilerFrameworkInCPP.a
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/keyboardcodelang.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
@@ -65,7 +67,7 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/keyboardcodelang.exe: ${OBJECTFILES}
 ${OBJECTDIR}/keyboardcode.o: keyboardcode.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/keyboardcode.o keyboardcode.cpp
+	$(COMPILE.cc) -g -I../../CodeBlocks/LittleLLVM/include -I../../CodeBlocks/LittleLLVM -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/keyboardcode.o keyboardcode.cpp
 
 # Subprojects
 .build-subprojects:
