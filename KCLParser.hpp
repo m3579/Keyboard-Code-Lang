@@ -45,14 +45,30 @@ Parser getParser(Lexer lexr)
     
     // Letter A
     SP<Construct> letter_a_constr(new Construct("Letter A", TType::Testing::LetterA,
-                                    NType::Testing::LetterA, 0, 0);
+                                    NType::Testing::LetterA, 0, 0));
     
     SP<ConstructTreeFormNode> letter_a_treeForm(new ConstructTreeFormNode("Letter A"));
     letter_a_constr->treeForm = letter_a_treeForm;
     
-    parser.addConstruct(letter_a_constr);
+    //parser.addConstruct(letter_a_constr);
     
     // END TESTING
+    
+    // Identifier
+    SP<Construct> identifier_constr(new Construct("Identifier", TType::Identifier, NType::Identifier, 0, 0));
+    
+    SP<ConstructTreeFormNode> identifier_treeForm(new ConstructTreeFormNode("Identifier"));
+    identifier_constr->treeForm = identifier_treeForm;
+    
+    parser.addConstruct(identifier_constr);
+    
+    // Number
+    SP<Construct> number_constr(new Construct("Number", TType::Number, NType::Number, 0, 0));
+    
+    SP<ConstructTreeFormNode> number_treeForm(new ConstructTreeFormNode("Number"));
+    number_constr->treeForm = number_treeForm;
+    
+    parser.addConstruct(number_constr);
     
     // End
     SP<Construct> end_constr(new Construct("End", TType::End, NType::End, 

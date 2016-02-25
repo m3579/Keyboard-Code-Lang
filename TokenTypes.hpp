@@ -28,6 +28,10 @@ namespace TType
         createTokenType(LetterA);
     }
     
+    createTokenType(Identifier);
+    
+    createTokenType(Number);
+    
     createTokenType(End);
 }
 

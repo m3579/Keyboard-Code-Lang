@@ -28,6 +28,13 @@ namespace NType
         createNodeType(LetterA);
     }
     
+    // TODO: this needs to change into specific identifiers, such as
+    // VariableName or FunctionName
+    createNodeType(Identifier);
+    
+    // TODO: same with this one as with Identifier
+    createTokenType(Number);
+    
     createNodeType(End);
 }
 

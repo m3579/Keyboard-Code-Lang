@@ -32,6 +32,12 @@ using namespace lexer;
 using namespace scanner;
 using namespace token;
 
+
+const std::string IDENTIFIER_START_CHARS = "abcdefghijklmnopqrstuvwxyzQBCDEFGHIJKLMNOPQRSTUVWXYZ_";
+const std::string IDENTIFIER_CHARS = IDENTIFIER_START_CHARS + "0123456789";
+
+const std::string NUMBER_CHARS = "0123456789";
+
 /**
  * Creates a lexer that is configured to lex (convert code into a series of
  * tokens) the given source code.
@@ -47,18 +53,60 @@ Lexer getLexer(std::string source)
     
     // This test is used in testing the lexer; it simply sees if the lexer is
     // at the lowercase letter a
+//    lexr.addTest(
+//        [] (Scanner& sc) {
+//             if (sc.getCurrentChar() == 'a') {
+//                std::cout << "Found letter a in lexer\n";
+//                return Token(sc.getLineNumber(), sc.getColumnNumber(), "a", TType::Testing::LetterA);
+//            }
+//            return Token();
+//        }
+//    );
+    
+    // END TESTING
+    
+    // Identifier
     lexr.addTest(
         [] (Scanner& sc) {
-             if (sc.getCurrentChar() == 'a') {
-                std::cout << "Found letter a in lexer\n";
-                return Token(sc.getLineNumber(), sc.getColumnNumber(), "a", TType::Testing::LetterA);
+            char c = sc.getCurrentChar();
+            if (IDENTIFIER_START_CHARS.find(c) != std::string::npos) {
+                int lineNumber = sc.getLineNumber();
+                int columnNumber = sc.getColumnNumber();
+                std::string tokenString(1, c);
+                
+                while (IDENTIFIER_CHARS.find(sc.fetchNextChar()) != std::string::npos) {
+                    tokenString += sc.moveToNextChar();
+                }
+                
+                return Token(lineNumber, columnNumber, tokenString, TType::Identifier);
             }
+            
             return Token();
         }
     );
     
-    // END TESTING
+    // Number
+    // TODO: add support for decimal point and negative sign
+    lexr.addTest(
+        [] (Scanner& sc) {
+            char c = sc.getCurrentChar();
+            if (NUMBER_CHARS.find(c) != std::string::npos) {
+                int lineNumber = sc.getLineNumber();
+                int columnNumber = sc.getColumnNumber();
+                std::string tokenString(1, c);
+                
+                while (NUMBER_CHARS.find(sc.fetchNextChar()) != std::string::npos) {
+                    tokenString += sc.moveToNextChar();
+                }
+                
+                return Token(lineNumber, columnNumber, tokenString, TType::Number);
+            }
+            
+            return Token();
+        }
+    );
     
+    // End
     lexr.addTest(
         [] (Scanner& sc) {
             if (sc.getCurrentChar() == '\0') {
