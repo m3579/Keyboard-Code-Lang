@@ -60,15 +60,53 @@ Parser getParser(Lexer lexr)
     SP<ConstructTreeFormNode> identifier_treeForm(new ConstructTreeFormNode("Identifier"));
     identifier_constr->treeForm = identifier_treeForm;
     
-    parser.addConstruct(identifier_constr);
-    
     // Number
-    SP<Construct> number_constr(new Construct("Number", TType::Number, NType::Number, 0, 0));
+    SP<Construct> number_constr(new Construct("Number", TType::Values::Number, NType::Values::Number, 0, 0));
     
     SP<ConstructTreeFormNode> number_treeForm(new ConstructTreeFormNode("Number"));
     number_constr->treeForm = number_treeForm;
     
-    parser.addConstruct(number_constr);
+    // Value
+    std::vector<TokenType> value_ttypes {
+        TType::Values::Number
+    };
+    std::vector<NodeType> value_ntypes {
+        NType::Values::Number
+    };
+    
+    SP<Construct> value_constr(new Construct("Value", value_ttypes, value_ntypes, 0, 0));
+    
+    // Whitespace
+    std::vector<TokenType> whitespace_ttypes {
+        TType::Whitespace::Space
+    };
+    std::vector<NodeType> whitespace_ntypes {
+        NType::NOT_USED_IN_AST
+    };
+    
+    SP<Construct> whitespace_constr(new Construct("Whitespace", whitespace_ttypes, whitespace_ntypes, 0, 0));
+    
+    // Write keyword
+    SP<Construct> write_constr(new Construct("Keyword - 'write'", TType::Keywords::Write, NType::FunctionCall, 0, 0));
+    
+    SP<ConstructTreeFormNode> write_treeForm(new ConstructTreeFormNode("Keyword - 'write'"));
+    write_constr->treeForm = write_treeForm;
+    
+    // Write statement
+    std::vector<SP<Construct>> write_stmt_components {
+        write_constr, whitespace_constr, value_constr
+    };
+    SP<Construct> write_stmt_constr(new Construct("Write Statement", write_stmt_components, 0, 0));
+    SP<ConstructTreeFormNode> write_stmt_treeForm(new ConstructTreeFormNode("Keyword - 'write'"));
+    write_stmt_treeForm->subnode("Value");
+    
+    parser.addConstruct(write_stmt_constr);
+    
+    // Let keyword
+    SP<Construct> let_constr(new Construct("Keyword - 'let'", TType::Keywords::Let, NType::NOT_USED_IN_AST, 0, 0));
+    
+    SP<ConstructTreeFormNode> let_treeForm(new ConstructTreeFormNode("Keyword - 'let'"));
+    let_constr->treeForm = let_treeForm;
     
     // End
     SP<Construct> end_constr(new Construct("End", TType::End, NType::End, 

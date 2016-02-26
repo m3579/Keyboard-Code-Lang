@@ -4,7 +4,7 @@
  * /KeyboardCodeLang/KCLLexer.hpp
  *
  *       Author: Mihir Kasmalkar
- * Date created: Feb 23, 2016
+ * Date created: Feb 23, 20s16
  *
  *      Purpose: The lexer for Keyboard Code Lang code. This file contains
  *              a getLexer function that is invoked whenever a lexer is needed.
@@ -23,6 +23,7 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 
 #include <Lexer.hpp>
 
@@ -33,10 +34,18 @@ using namespace scanner;
 using namespace token;
 
 
-const std::string IDENTIFIER_START_CHARS = "abcdefghijklmnopqrstuvwxyzQBCDEFGHIJKLMNOPQRSTUVWXYZ_";
+const std::string IDENTIFIER_START_CHARS = "abcdefghijklmnopqrstuvwxyzQBCDEFGHIJKLMNOPQRSTUVWXYZ";
 const std::string IDENTIFIER_CHARS = IDENTIFIER_START_CHARS + "0123456789";
 
 const std::string NUMBER_CHARS = "0123456789";
+
+const std::string KEYWORD_START_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const std::string KEYWORD_CHARS = KEYWORD_START_CHARS + "0123456789";
+
+
+std::map<std::string, std::string> keywordToTTypeMap;
+void populateKeywordToTTypeMap();
+
 
 /**
  * Creates a lexer that is configured to lex (convert code into a series of
@@ -48,6 +57,8 @@ const std::string NUMBER_CHARS = "0123456789";
 Lexer getLexer(std::string source)
 {
     Lexer lexr(source);
+    
+    populateKeywordToTTypeMap();
     
     // TESTING
     
@@ -70,6 +81,8 @@ Lexer getLexer(std::string source)
         [] (Scanner& sc) {
             char c = sc.getCurrentChar();
             if (IDENTIFIER_START_CHARS.find(c) != std::string::npos) {
+                sc.startCountingMovements();
+                
                 int lineNumber = sc.getLineNumber();
                 int columnNumber = sc.getColumnNumber();
                 std::string tokenString(1, c);
@@ -78,7 +91,15 @@ Lexer getLexer(std::string source)
                     tokenString += sc.moveToNextChar();
                 }
                 
-                return Token(lineNumber, columnNumber, tokenString, TType::Identifier);
+                // If identifier is not in keyword-TokenType map
+                // (hence, if identifier is not a keyword)
+                if (keywordToTTypeMap.find(tokenString) == keywordToTTypeMap.end()) {
+                    return Token(lineNumber, columnNumber, tokenString, TType::Identifier);
+                }
+                else {
+                    // Move the scanner back to the beginning of the word
+                    sc.reset();
+                }
             }
             
             return Token();
@@ -99,7 +120,54 @@ Lexer getLexer(std::string source)
                     tokenString += sc.moveToNextChar();
                 }
                 
-                return Token(lineNumber, columnNumber, tokenString, TType::Number);
+                return Token(lineNumber, columnNumber, tokenString, TType::Values::Number);
+            }
+            
+            return Token();
+        }
+    );
+    
+    // Keywords
+    lexr.addTest(
+        [] (Scanner& sc) {
+            char c = sc.getCurrentChar();
+            if (KEYWORD_START_CHARS.find(c) != std::string::npos) {
+                sc.startCountingMovements();
+                
+                std::string tokenString(1, c);
+                int lineNumber = sc.getLineNumber();
+                int columnNumber = sc.getColumnNumber();
+                
+                while (KEYWORD_CHARS.find(sc.fetchNextChar()) != std::string::npos) {
+                    tokenString += sc.moveToNextChar();
+                }
+                
+                if (keywordToTTypeMap.find(tokenString) != keywordToTTypeMap.end()) {
+                    return Token(lineNumber, columnNumber, tokenString, keywordToTTypeMap[tokenString]);
+                }
+                else {
+                    sc.reset();
+                }
+            }
+            
+            return Token();
+        }
+    );
+    
+    // Space
+    lexr.addTest(
+        [] (Scanner& sc) {
+            char c = sc.getCurrentChar();
+            if (c == ' ') {
+                int lineNumber = sc.getLineNumber();
+                int columnNumber = sc.getColumnNumber();
+                std::string tokenString(1, c);
+                
+                while (sc.fetchNextChar() == ' ') {
+                    tokenString += sc.moveToNextChar();
+                }
+                
+                return Token(lineNumber, columnNumber, tokenString, TType::Whitespace::Space);
             }
             
             return Token();
@@ -120,6 +188,14 @@ Lexer getLexer(std::string source)
     
     return lexr;
 }
+
+
+void populateKeywordToTTypeMap()
+{
+    keywordToTTypeMap["write"] = TType::Keywords::Write;
+    keywordToTTypeMap["let"] = TType::Keywords::Let;
+}
+
 
 #endif /* KCLLEXER_HPP */
 

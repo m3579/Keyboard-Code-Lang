@@ -28,9 +28,23 @@ namespace TType
         createTokenType(LetterA);
     }
     
+    namespace Keywords
+    {
+        createTokenType(Write);
+        createTokenType(Let);
+    }
+    
     createTokenType(Identifier);
     
-    createTokenType(Number);
+    namespace Values
+    {
+        createTokenType(Number);
+    }
+    
+    namespace Whitespace
+    {
+        createTokenType(Space);
+    }
     
     createTokenType(End);
 }

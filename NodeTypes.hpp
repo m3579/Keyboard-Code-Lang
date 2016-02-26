@@ -28,12 +28,20 @@ namespace NType
         createNodeType(LetterA);
     }
     
+    // Some nodes will not be in the final Syntax Tree; this node type is for them
+    createNodeType(NOT_USED_IN_AST);
+
+    createNodeType(FunctionCall);
+    
     // TODO: this needs to change into specific identifiers, such as
     // VariableName or FunctionName
     createNodeType(Identifier);
     
-    // TODO: same with this one as with Identifier
-    createTokenType(Number);
+    namespace Values
+    {
+        // TODO: same with this one as with Identifier
+        createTokenType(Number);
+    }
     
     createNodeType(End);
 }

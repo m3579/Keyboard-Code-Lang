@@ -35,7 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/keyboardcode.o
+	${OBJECTDIR}/keyboardcode.o \
+	${OBJECTDIR}/utilities.o
 
 
 # C Compiler Flags
@@ -68,6 +69,11 @@ ${OBJECTDIR}/keyboardcode.o: keyboardcode.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../CodeBlocks/LittleLLVM/include -I../../CodeBlocks/LittleLLVM -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/keyboardcode.o keyboardcode.cpp
+
+${OBJECTDIR}/utilities.o: utilities.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../CodeBlocks/LittleLLVM/include -I../../CodeBlocks/LittleLLVM -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/utilities.o utilities.cpp
 
 # Subprojects
 .build-subprojects:
