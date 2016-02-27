@@ -68,12 +68,12 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/keyboardcodelang.exe: ${OBJECTFILES}
 ${OBJECTDIR}/keyboardcode.o: keyboardcode.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I../../CodeBlocks/LittleLLVM/include -I../../CodeBlocks/LittleLLVM -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/keyboardcode.o keyboardcode.cpp
+	$(COMPILE.cc) -g -I../../CodeBlocks/LittleLLVM/include -I../../CodeBlocks/LittleLLVM -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/keyboardcode.o keyboardcode.cpp
 
 ${OBJECTDIR}/utilities.o: utilities.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I../../CodeBlocks/LittleLLVM/include -I../../CodeBlocks/LittleLLVM -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/utilities.o utilities.cpp
+	$(COMPILE.cc) -g -I../../CodeBlocks/LittleLLVM/include -I../../CodeBlocks/LittleLLVM -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/utilities.o utilities.cpp
 
 # Subprojects
 .build-subprojects:

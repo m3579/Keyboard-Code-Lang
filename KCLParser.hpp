@@ -25,7 +25,8 @@
 #include <Parser.hpp>
 
 #include "KCLLexer.hpp"
-#include "NodeTypes.hpp"
+
+#include "ParserConstructs/ValueConstruct.hpp"
 
 using namespace parser;
 using namespace ast;
@@ -44,47 +45,26 @@ Parser getParser(Lexer lexr)
     // TESTING
     
     // Letter A
-    SP<Construct> letter_a_constr(new Construct("Letter A", TType::Testing::LetterA,
-                                    NType::Testing::LetterA, 0, 0));
-    
-    SP<ConstructTreeFormNode> letter_a_treeForm(new ConstructTreeFormNode("Letter A"));
-    letter_a_constr->treeForm = letter_a_treeForm;
+//    SP<Construct> letter_a_constr(new Construct("Letter A", TType::Testing::LetterA,
+//                                    NType::Testing::LetterA, 0, 0));
+//    
+//    SP<ConstructTreeFormNode> letter_a_treeForm(new ConstructTreeFormNode("Letter A"));
+//    letter_a_constr->treeForm = letter_a_treeForm;
     
     //parser.addConstruct(letter_a_constr);
     
     // END TESTING
     
-    // Identifier
-    SP<Construct> identifier_constr(new Construct("Identifier", TType::Identifier, NType::Identifier, 0, 0));
-    
-    SP<ConstructTreeFormNode> identifier_treeForm(new ConstructTreeFormNode("Identifier"));
-    identifier_constr->treeForm = identifier_treeForm;
+    SP<Construct> identifier_constr(getIdentifierConstruct());
     
     // Number
-    SP<Construct> number_constr(new Construct("Number", TType::Values::Number, NType::Values::Number, 0, 0));
-    
-    SP<ConstructTreeFormNode> number_treeForm(new ConstructTreeFormNode("Number"));
-    number_constr->treeForm = number_treeForm;
+    SP<Construct> number_constr(getNumberConstruct());
     
     // Value
-    std::vector<TokenType> value_ttypes {
-        TType::Values::Number
-    };
-    std::vector<NodeType> value_ntypes {
-        NType::Values::Number
-    };
-    
-    SP<Construct> value_constr(new Construct("Value", value_ttypes, value_ntypes, 0, 0));
+    SP<Construct> value_constr(getValueConstruct());
     
     // Whitespace
-    std::vector<TokenType> whitespace_ttypes {
-        TType::Whitespace::Space
-    };
-    std::vector<NodeType> whitespace_ntypes {
-        NType::NOT_USED_IN_AST
-    };
-    
-    SP<Construct> whitespace_constr(new Construct("Whitespace", whitespace_ttypes, whitespace_ntypes, 0, 0));
+    SP<Construct> whitespace_constr(getWhitespaceConstruct());
     
     // Write keyword
     SP<Construct> write_constr(new Construct("Keyword - 'write'", TType::Keywords::Write, NType::FunctionCall, 0, 0));
@@ -97,8 +77,11 @@ Parser getParser(Lexer lexr)
         write_constr, whitespace_constr, value_constr
     };
     SP<Construct> write_stmt_constr(new Construct("Write Statement", write_stmt_components, 0, 0));
+    
     SP<ConstructTreeFormNode> write_stmt_treeForm(new ConstructTreeFormNode("Keyword - 'write'"));
     write_stmt_treeForm->subnode("Value");
+    
+    write_stmt_constr->treeForm = write_stmt_treeForm;
     
     parser.addConstruct(write_stmt_constr);
     

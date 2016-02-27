@@ -4,10 +4,16 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="ParserConstructs" projectFiles="true">
+        <itemPath>ParserConstructs/IdentifierConstruct.hpp</itemPath>
+        <itemPath>NumberConstruct.hpp</itemPath>
+        <itemPath>ParserConstructs/ValueConstruct.hpp</itemPath>
+      </logicalFolder>
       <itemPath>KCLLexer.hpp</itemPath>
       <itemPath>KCLParser.hpp</itemPath>
       <itemPath>NodeTypes.hpp</itemPath>
       <itemPath>TokenTypes.hpp</itemPath>
+      <itemPath>ParserConstructs/WhitespaceConstruct.hpp</itemPath>
       <itemPath>utilities.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -46,6 +52,7 @@
           <incDir>
             <pElem>../../CodeBlocks/LittleLLVM/include</pElem>
             <pElem>../../CodeBlocks/LittleLLVM</pElem>
+            <pElem>.</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
@@ -62,6 +69,23 @@
       <item path="KCLParser.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="NodeTypes.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NumberConstruct.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ParserConstructs/IdentifierConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/ValueConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/WhitespaceConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="TokenTypes.hpp" ex="false" tool="3" flavor2="0">
       </item>
@@ -97,6 +121,23 @@
       <item path="KCLParser.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="NodeTypes.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NumberConstruct.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ParserConstructs/IdentifierConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/ValueConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/WhitespaceConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="TokenTypes.hpp" ex="false" tool="3" flavor2="0">
       </item>

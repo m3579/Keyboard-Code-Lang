@@ -43,8 +43,8 @@ const std::string KEYWORD_START_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLM
 const std::string KEYWORD_CHARS = KEYWORD_START_CHARS + "0123456789";
 
 
-std::map<std::string, std::string> keywordToTTypeMap;
-void populateKeywordToTTypeMap();
+std::map<std::string, std::string> textToTTypeMap;
+void populateTextToTTypeMap();
 
 
 /**
@@ -58,7 +58,7 @@ Lexer getLexer(std::string source)
 {
     Lexer lexr(source);
     
-    populateKeywordToTTypeMap();
+    populateTextToTTypeMap();
     
     // TESTING
     
@@ -93,7 +93,7 @@ Lexer getLexer(std::string source)
                 
                 // If identifier is not in keyword-TokenType map
                 // (hence, if identifier is not a keyword)
-                if (keywordToTTypeMap.find(tokenString) == keywordToTTypeMap.end()) {
+                if (textToTTypeMap.find(tokenString) == textToTTypeMap.end()) {
                     return Token(lineNumber, columnNumber, tokenString, TType::Identifier);
                 }
                 else {
@@ -142,8 +142,9 @@ Lexer getLexer(std::string source)
                     tokenString += sc.moveToNextChar();
                 }
                 
-                if (keywordToTTypeMap.find(tokenString) != keywordToTTypeMap.end()) {
-                    return Token(lineNumber, columnNumber, tokenString, keywordToTTypeMap[tokenString]);
+                if (textToTTypeMap.find(tokenString) != textToTTypeMap.end()) {
+                    std::cout << "Found |" << textToTTypeMap[tokenString] << "|\n";
+                    return Token(lineNumber, columnNumber, tokenString, textToTTypeMap[tokenString]);
                 }
                 else {
                     sc.reset();
@@ -190,10 +191,10 @@ Lexer getLexer(std::string source)
 }
 
 
-void populateKeywordToTTypeMap()
+void populateTextToTTypeMap()
 {
-    keywordToTTypeMap["write"] = TType::Keywords::Write;
-    keywordToTTypeMap["let"] = TType::Keywords::Let;
+    textToTTypeMap["write"] = TType::Keywords::Write;
+    textToTTypeMap["let"] = TType::Keywords::Let;
 }
 
 
