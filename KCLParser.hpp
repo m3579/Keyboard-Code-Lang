@@ -26,7 +26,7 @@
 
 #include "KCLLexer.hpp"
 
-#include "ParserConstructs/ValueConstruct.hpp"
+#include "ParserStatements/WriteStatement.hpp"
 
 using namespace parser;
 using namespace ast;
@@ -42,48 +42,8 @@ Parser getParser(Lexer lexr)
 {
     Parser parser(lexr);
     
-    // TESTING
-    
-    // Letter A
-//    SP<Construct> letter_a_constr(new Construct("Letter A", TType::Testing::LetterA,
-//                                    NType::Testing::LetterA, 0, 0));
-//    
-//    SP<ConstructTreeFormNode> letter_a_treeForm(new ConstructTreeFormNode("Letter A"));
-//    letter_a_constr->treeForm = letter_a_treeForm;
-    
-    //parser.addConstruct(letter_a_constr);
-    
-    // END TESTING
-    
-    SP<Construct> identifier_constr(getIdentifierConstruct());
-    
-    // Number
-    SP<Construct> number_constr(getNumberConstruct());
-    
-    // Value
-    SP<Construct> value_constr(getValueConstruct());
-    
-    // Whitespace
-    SP<Construct> whitespace_constr(getWhitespaceConstruct());
-    
-    // Write keyword
-    SP<Construct> write_constr(new Construct("Keyword - 'write'", TType::Keywords::Write, NType::FunctionCall, 0, 0));
-    
-    SP<ConstructTreeFormNode> write_treeForm(new ConstructTreeFormNode("Keyword - 'write'"));
-    write_constr->treeForm = write_treeForm;
-    
     // Write statement
-    std::vector<SP<Construct>> write_stmt_components {
-        write_constr, whitespace_constr, value_constr
-    };
-    SP<Construct> write_stmt_constr(new Construct("Write Statement", write_stmt_components, 0, 0));
-    
-    SP<ConstructTreeFormNode> write_stmt_treeForm(new ConstructTreeFormNode("Keyword - 'write'"));
-    write_stmt_treeForm->subnode("Value");
-    
-    write_stmt_constr->treeForm = write_stmt_treeForm;
-    
-    parser.addConstruct(write_stmt_constr);
+    parser.addConstruct(writeStatement());
     
     // Let keyword
     SP<Construct> let_constr(new Construct("Keyword - 'let'", TType::Keywords::Let, NType::NOT_USED_IN_AST, 0, 0));

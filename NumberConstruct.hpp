@@ -9,7 +9,7 @@
  *      Purpose: Creates a construct representing an identifier in the source code being compiled
  *              // TODO: include information about 1) the token and what it will look for, and 2)
  *              // the treeForm
- *        Usage: Will be used by the parser
+ *        Usage: Will be used in statement constructs, which will be used by the parser
  *
  *        Notes: 
  *
@@ -25,7 +25,7 @@
 
 using namespace ast;
 
-SP<Construct> getNumberConstruct()
+SP<Construct> number()()
 {
     SP<Construct> number_constr(new Construct("Number", TType::Values::Number, NType::Values::Number, 0, 0));
     

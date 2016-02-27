@@ -8,7 +8,7 @@
  *
  *      Purpose: Creates a construct representing a value in the source code being compiled
  *
- *        Usage: Will be used by the parser
+ *        Usage: Will be used in statement constructs, which will be used by the parser
  *
  *        Notes: 
  *
@@ -24,7 +24,7 @@
 
 using namespace ast;
 
-SP<Construct> getValueConstruct()
+SP<Construct> value()
 {
     std::vector<TokenType> value_ttypes {
         TType::Values::Number, TType::Values::String, TType::Values::Identifier
