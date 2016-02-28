@@ -51,7 +51,8 @@ void addStringTest(Lexer& lexr)
                 }
                 
                 // We need to move to the last char of the string (which is the closing quote)
-                sc.moveToNextChar();
+                // We also add that closing quote to the token's text
+                tokenString += sc.moveToNextChar();
                 
                 return Token(lineNumber, columnNumber, tokenString, TType::Values::String);
             }

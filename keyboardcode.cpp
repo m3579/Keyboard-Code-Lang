@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   keyboardcode.cpp
+ * File: keyboardcode.cpp
  * Author: Mihir Kasmalkar
  *
  * Created on February 23, 2016, 9:44 PM
@@ -30,7 +30,7 @@ using namespace pointer;
 int main(int argc, char* argv[])
 {   
     try {
-        Parser parser = getParser(getLexer("write 2"));
+        Parser parser = getParser(getLexer("write hello"));
         SP<SyntaxTree> tree(parser.createSyntaxTree());
         tree->print("");    
     }
