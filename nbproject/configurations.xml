@@ -21,6 +21,7 @@
         <itemPath>ParserConstructs/KeywordWriteConstruct.hpp</itemPath>
         <itemPath>NumberConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/OperatorPlusConstruct.hpp</itemPath>
+        <itemPath>ParserConstructs/StringConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/ValueConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/WhitespaceConstruct.hpp</itemPath>
       </logicalFolder>
@@ -135,6 +136,11 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="ParserConstructs/StringConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="ParserConstructs/ValueConstruct.hpp"
             ex="false"
             tool="3"
@@ -231,6 +237,11 @@
             flavor2="0">
       </item>
       <item path="ParserConstructs/OperatorPlusConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/StringConstruct.hpp"
             ex="false"
             tool="3"
             flavor2="0">

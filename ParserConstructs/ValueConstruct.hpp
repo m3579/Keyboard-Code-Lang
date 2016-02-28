@@ -19,21 +19,26 @@
 
 #include <Construct.hpp>
 
-#include "TokenTypes.hpp"
-#include "NodeTypes.hpp"
+#include "NumberConstruct.hpp"
+#include "IdentifierConstruct.hpp"
+#include "StringConstruct.hpp"
+#include "ExpressionConstruct.hpp"
 
 using namespace ast;
 
 SP<Construct> value()
 {
-    std::vector<TokenType> value_ttypes {
-        TType::Values::Number, TType::Values::String, TType::Identifier
-    };
-    std::vector<NodeType> value_ntypes {
-        NType::Values::Number, TType::Values::String, TType::Identifier
+    // I make a link to the expression to avoid a circular reference of
+    // Value->Expression->Addition->Value
+    SP<Construct> link_to_expression(new Construct(expression));
+    
+    // TODO: change from identifier() to variable(), function(), etc.
+    // or put it in expression()
+    std::vector<SP<Construct>> value_possible_constructs {
+        number(), string(), identifier(), link_to_expression
     };
     
-    SP<Construct> value_constr(new Construct("Value", value_ttypes, value_ntypes, 0, 0));
+    SP<Construct> value_constr(new Construct(value_possible_constructs, "Value", 0, 0));
     
     SP<ConstructTreeFormNode> value_treeForm(new ConstructTreeFormNode("Value"));
     value_constr->treeForm = value_treeForm;

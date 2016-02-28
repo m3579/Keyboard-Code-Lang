@@ -46,8 +46,8 @@ namespace NType
     
     namespace Operators
     {
-        createNodeType(Plus);
-        createNodeType(Minus);
+        createNodeType(Add);
+        createNodeType(Subtract);
         createNodeType(Multiply);
         createNodeType(Divide);
     }

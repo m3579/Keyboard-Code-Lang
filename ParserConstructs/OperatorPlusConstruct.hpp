@@ -25,7 +25,7 @@ using namespace ast;
 
 SP<Construct> operator_plus()
 {
-    SP<Construct> plus_constr(new Construct("Plus", TType::Operators::Plus, NType::Operators::Add));
+    SP<Construct> plus_constr(new Construct("Plus", TType::Operators::Plus, NType::Operators::Add, 0, 0));
     
     SP<ConstructTreeFormNode> plus_treeForm(new ConstructTreeFormNode("Plus"));
     

@@ -46,8 +46,8 @@ namespace TType
     {
         createTokenType(Plus);
         createTokenType(Minus);
-        createTokenType(Multiply);
-        createTokenType(Divide);
+        createTokenType(Asterisk);
+        createTokenType(ForwardSlash);
     }
     
     namespace Whitespace

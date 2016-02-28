@@ -31,6 +31,12 @@ build/Debug/MinGW-Windows/keyboardcode.o: keyboardcode.cpp \
  ../../CodeBlocks/LittleLLVM/include/Construct.hpp NodeTypes.hpp \
  ParserConstructs/KeywordWriteConstruct.hpp \
  ParserConstructs/WhitespaceConstruct.hpp \
+ ParserConstructs/ValueConstruct.hpp NumberConstruct.hpp TokenTypes.hpp \
+ NodeTypes.hpp ParserConstructs/IdentifierConstruct.hpp \
+ ParserConstructs/StringConstruct.hpp \
+ ParserConstructs/ExpressionConstruct.hpp \
+ ParserConstructs/AdditionConstruct.hpp \
+ ParserConstructs/OperatorPlusConstruct.hpp \
  ParserConstructs/ValueConstruct.hpp ParserStatements/EndStatement.hpp
 
 ../../CodeBlocks/LittleLLVM/utilities.h:
@@ -112,6 +118,24 @@ NodeTypes.hpp:
 ParserConstructs/KeywordWriteConstruct.hpp:
 
 ParserConstructs/WhitespaceConstruct.hpp:
+
+ParserConstructs/ValueConstruct.hpp:
+
+NumberConstruct.hpp:
+
+TokenTypes.hpp:
+
+NodeTypes.hpp:
+
+ParserConstructs/IdentifierConstruct.hpp:
+
+ParserConstructs/StringConstruct.hpp:
+
+ParserConstructs/ExpressionConstruct.hpp:
+
+ParserConstructs/AdditionConstruct.hpp:
+
+ParserConstructs/OperatorPlusConstruct.hpp:
 
 ParserConstructs/ValueConstruct.hpp:
 

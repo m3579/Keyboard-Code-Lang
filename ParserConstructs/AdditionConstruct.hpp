@@ -21,20 +21,24 @@
 
 #include <Construct.hpp>
 
+#include "OperatorPlusConstruct.hpp"
 #include "ValueConstruct.hpp"
 
 using namespace ast;
 
+SP<Construct> value();
 
 SP<Construct> addition()
-{
-    SP<Construct> operand1(value());
+{   
+    // I make links here to the value construct to avoid a circular reference
+    // of Value->Expression->Addition->Value
+    SP<Construct> operand1(new Construct(value));
     operand1->name = "Operand 1";
     
-    SP<Construct> operand1(value());
+    SP<Construct> operand2(new Construct(value));
     operand2->name = "Operand 2";
     
-    SP<Construct> addition_constr_components {
+    std::vector<SP<Construct>> addition_constr_components {
         operand1, operator_plus(), operand2
     };
     

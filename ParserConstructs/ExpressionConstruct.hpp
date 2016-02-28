@@ -20,14 +20,20 @@
 
 #include <Construct.hpp>
 
+#include "AdditionConstruct.hpp"
+
 using namespace ast;
 
 
 SP<Construct> expression()
 {
     std::vector<SP<Construct>> expression_possible_constructs {
-        
+        addition()
     };
+    
+    SP<Construct> expression_constr(new Construct(expression_possible_constructs, "Expression", 0, 0));
+    
+    return expression_constr;
 }
 
 

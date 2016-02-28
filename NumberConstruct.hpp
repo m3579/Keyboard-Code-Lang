@@ -25,7 +25,7 @@
 
 using namespace ast;
 
-SP<Construct> number()()
+SP<Construct> number()
 {
     SP<Construct> number_constr(new Construct("Number", TType::Values::Number, NType::Values::Number, 0, 0));
     
