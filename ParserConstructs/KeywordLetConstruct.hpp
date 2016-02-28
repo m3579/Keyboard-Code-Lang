@@ -8,7 +8,7 @@
  *
  *      Purpose: Creates a construct representing the "let" keyword
  *
- *        Usage: Will be used in the parser
+ *        Usage: Will be used in statement constructs, which will be used by the parser
  *
  *        Notes: 
  *

@@ -14,10 +14,13 @@
         <itemPath>LexerTests/StringTest.hpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="ParserConstructs" projectFiles="true">
+        <itemPath>ParserConstructs/AdditionConstruct.hpp</itemPath>
+        <itemPath>ParserConstructs/ExpressionConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/IdentifierConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/KeywordLetConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/KeywordWriteConstruct.hpp</itemPath>
         <itemPath>NumberConstruct.hpp</itemPath>
+        <itemPath>ParserConstructs/OperatorPlusConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/ValueConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/WhitespaceConstruct.hpp</itemPath>
       </logicalFolder>
@@ -102,6 +105,16 @@
       </item>
       <item path="NumberConstruct.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ParserConstructs/AdditionConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/ExpressionConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="ParserConstructs/IdentifierConstruct.hpp"
             ex="false"
             tool="3"
@@ -113,6 +126,11 @@
             flavor2="0">
       </item>
       <item path="ParserConstructs/KeywordWriteConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/OperatorPlusConstruct.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -187,6 +205,16 @@
       </item>
       <item path="NumberConstruct.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ParserConstructs/AdditionConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/ExpressionConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="ParserConstructs/IdentifierConstruct.hpp"
             ex="false"
             tool="3"
@@ -198,6 +226,11 @@
             flavor2="0">
       </item>
       <item path="ParserConstructs/KeywordWriteConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/OperatorPlusConstruct.hpp"
             ex="false"
             tool="3"
             flavor2="0">

@@ -40,7 +40,16 @@ namespace NType
     namespace Values
     {
         // TODO: same with this one as with Identifier
-        createTokenType(Number);
+        createNodeType(Number);
+        createNodeType(String);
+    }
+    
+    namespace Operators
+    {
+        createNodeType(Plus);
+        createNodeType(Minus);
+        createNodeType(Multiply);
+        createNodeType(Divide);
     }
     
     createNodeType(End);
