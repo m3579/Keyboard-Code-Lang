@@ -27,6 +27,8 @@ using namespace token;
 
 void addEndTest(Lexer& lexr)
 {
+    // TODO: add test for newline
+    
     lexr.addTest(
         [] (Scanner& sc) {
             std::cout << "Running End test...\n";

@@ -40,6 +40,7 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>testfile.txt</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -170,6 +171,8 @@
       </item>
       <item path="keyboardcode.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="testfile.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="utilities.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="utilities.hpp" ex="false" tool="3" flavor2="0">
@@ -279,6 +282,8 @@
       <item path="TokenTypes.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="keyboardcode.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="testfile.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="utilities.cpp" ex="false" tool="1" flavor2="0">
       </item>
