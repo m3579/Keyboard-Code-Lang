@@ -20,6 +20,8 @@
 
 #include <Lexer.hpp>
 
+#include "TokenTypes.hpp"
+
 using namespace lexer;
 using namespace scanner;
 using namespace token;

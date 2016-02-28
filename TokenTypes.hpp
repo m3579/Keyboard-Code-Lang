@@ -39,6 +39,7 @@ namespace TType
     namespace Values
     {
         createTokenType(Number);
+        createTokenType(String);
     }
     
     namespace Whitespace

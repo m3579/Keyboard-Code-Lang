@@ -25,10 +25,11 @@
 using namespace ast;
 using namespace parser;
 
+void end_found(TokenManager& tm);
+
 SP<Construct> endStatement()
 {
-    SP<Construct> end_constr("End", TType::End, NType::End,
-            [] (TokenManager& tm) { tm.exit = true; }, 0);
+    SP<Construct> end_constr(new Construct("End", TType::End, NType::End, end_found, 0));
     
     SP<ConstructTreeFormNode> end_treeForm(new ConstructTreeFormNode("End"));
     
@@ -37,6 +38,10 @@ SP<Construct> endStatement()
     return end_constr;
 }
         
+void end_found(TokenManager& tm)
+{
+    tm.exit = true;
+}
 
 #endif /* ENDSTATEMENT_HPP */
 

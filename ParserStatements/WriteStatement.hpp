@@ -32,11 +32,11 @@ SP<Construct> writeStatement()
 {
     std::vector<SP<Construct>> write_stmt_components {
         keyword_write(), whitespace(), value()
-    }
+    };
     
-    SP<Construct> write_stmt("Write statement", write_stmt_components, 0, 0);
+    SP<Construct> write_stmt(new Construct("Write statement", write_stmt_components, 0, 0));
     
-    SP<ConstructTreeFormNode> write_treeForm("Keyword - 'write'");
+    SP<ConstructTreeFormNode> write_treeForm(new ConstructTreeFormNode("Keyword - 'write'"));
     write_treeForm->subnode("Value");
     
     write_stmt->treeForm = write_treeForm;

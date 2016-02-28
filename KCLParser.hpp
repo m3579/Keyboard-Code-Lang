@@ -27,6 +27,7 @@
 #include "KCLLexer.hpp"
 
 #include "ParserStatements/WriteStatement.hpp"
+#include "ParserStatements/EndStatement.hpp"
 
 using namespace parser;
 using namespace ast;

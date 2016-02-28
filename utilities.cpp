@@ -27,7 +27,7 @@ namespace utilities
         std::cout << "Error: " << message;
         
         if (fatal) {
-            throw std::runtime_error("Fatal error: " + message);
+            throw std::runtime_error("Fatal error: " + message + "\n");
         }
     }
 }

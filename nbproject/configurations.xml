@@ -10,6 +10,7 @@
         <itemPath>LexerTests/KeywordTest.hpp</itemPath>
         <itemPath>LexerTests/NumberTest.hpp</itemPath>
         <itemPath>LexerTests/SpaceTest.hpp</itemPath>
+        <itemPath>LexerTests/StringTest.hpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="ParserConstructs" projectFiles="true">
         <itemPath>ParserConstructs/IdentifierConstruct.hpp</itemPath>
@@ -90,6 +91,8 @@
       </item>
       <item path="LexerTests/SpaceTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="LexerTests/StringTest.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="NodeTypes.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="NumberConstruct.hpp" ex="false" tool="3" flavor2="0">
@@ -163,6 +166,8 @@
       <item path="LexerTests/NumberTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="LexerTests/SpaceTest.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="LexerTests/StringTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="NodeTypes.hpp" ex="false" tool="3" flavor2="0">
       </item>

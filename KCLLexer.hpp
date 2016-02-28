@@ -27,20 +27,21 @@
 
 #include <Lexer.hpp>
 
-#include "LexerTests/EndTest.hpp"
-#include "LexerTests/IdentifierTest.hpp"
-#include "LexerTests/KeywordTest.hpp"
-#include "LexerTests/NumberTest.hpp"
-
 using namespace lexer;
 using namespace scanner;
 using namespace token;
 
-
-
 std::map<std::string, std::string> textToTTypeMap;
 void populateTextToTTypeMap();
 
+// I include these files (the tests) after declaring textToTTypeMap because they use it
+// and throw errors if they cannot find it
+#include "LexerTests/EndTest.hpp"
+#include "LexerTests/IdentifierTest.hpp"
+#include "LexerTests/KeywordTest.hpp"
+#include "LexerTests/NumberTest.hpp"
+#include "LexerTests/StringTest.hpp"
+#include "LexerTests/SpaceTest.hpp"
 
 /**
  * Creates a lexer that is configured to lex (convert code into a series of
@@ -55,19 +56,17 @@ Lexer getLexer(std::string source)
     
     populateTextToTTypeMap();
     
-    // Identifier
+    // Add test to the lexer
     addIdentifierTest(lexr);
     
-    // Keywords
     addKeywordTest(lexr);
     
-    // Number
     addNumberTest(lexr);
     
-    // Space
+    addStringTest(lexr);
+    
     addSpaceTest(lexr);
     
-    // End
     addEndTest(lexr);
     
     return lexr;

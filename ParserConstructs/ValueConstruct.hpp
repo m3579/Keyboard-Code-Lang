@@ -27,10 +27,10 @@ using namespace ast;
 SP<Construct> value()
 {
     std::vector<TokenType> value_ttypes {
-        TType::Values::Number, TType::Values::String, TType::Values::Identifier
+        TType::Values::Number, TType::Values::String, TType::Identifier
     };
     std::vector<NodeType> value_ntypes {
-        NType::Values::Number, TType::Values::String, TType::Values::Identifier
+        NType::Values::Number, TType::Values::String, TType::Identifier
     };
     
     SP<Construct> value_constr(new Construct("Value", value_ttypes, value_ntypes, 0, 0));

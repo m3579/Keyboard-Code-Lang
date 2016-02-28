@@ -19,6 +19,8 @@
 
 #include <Lexer.hpp>
 
+#include "TokenTypes.hpp"
+
 using namespace lexer;
 using namespace scanner;
 using namespace token;
@@ -44,7 +46,6 @@ void addKeywordTest(Lexer& lexr)
                 }
                 
                 if (textToTTypeMap.find(tokenString) != textToTTypeMap.end()) {
-                    std::cout << "Found |" << textToTTypeMap[tokenString] << "|\n";
                     return Token(lineNumber, columnNumber, tokenString, textToTTypeMap[tokenString]);
                 }
                 else {

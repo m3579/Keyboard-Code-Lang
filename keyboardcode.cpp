@@ -27,12 +27,12 @@ using namespace pointer;
  * Usage:
  *     keyboardcode filename_to_compile
  */
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {   
     try {
-        Parser parser = getParser(getLexer("write 2"));
+        Parser parser = getParser(getLexer("write hi"));
         SP<SyntaxTree> tree(parser.createSyntaxTree());
-        tree->print("");        
+        tree->print("");    
     }
     catch (std::exception& ex) {
         std::cout << ex.what() << "\n";
