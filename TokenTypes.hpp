@@ -42,6 +42,14 @@ namespace TType
         createTokenType(String);
     }
     
+    namespace Operators
+    {
+        createTokenType(Plus);
+        createTokenType(Minus);
+        createTokenType(Multiply);
+        createTokenType(Divide);
+    }
+    
     namespace Whitespace
     {
         createTokenType(Space);

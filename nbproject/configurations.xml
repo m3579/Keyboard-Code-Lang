@@ -9,11 +9,13 @@
         <itemPath>LexerTests/IdentifierTest.hpp</itemPath>
         <itemPath>LexerTests/KeywordTest.hpp</itemPath>
         <itemPath>LexerTests/NumberTest.hpp</itemPath>
+        <itemPath>LexerTests/OperatorTest.hpp</itemPath>
         <itemPath>LexerTests/SpaceTest.hpp</itemPath>
         <itemPath>LexerTests/StringTest.hpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="ParserConstructs" projectFiles="true">
         <itemPath>ParserConstructs/IdentifierConstruct.hpp</itemPath>
+        <itemPath>ParserConstructs/KeywordLetConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/KeywordWriteConstruct.hpp</itemPath>
         <itemPath>NumberConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/ValueConstruct.hpp</itemPath>
@@ -21,6 +23,7 @@
       </logicalFolder>
       <logicalFolder name="f2" displayName="ParserStatements" projectFiles="true">
         <itemPath>ParserStatements/EndStatement.hpp</itemPath>
+        <itemPath>ParserStatements/LetStatement.hpp</itemPath>
         <itemPath>ParserStatements/WriteStatement.hpp</itemPath>
       </logicalFolder>
       <itemPath>KCLLexer.hpp</itemPath>
@@ -89,6 +92,8 @@
       </item>
       <item path="LexerTests/NumberTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="LexerTests/OperatorTest.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="LexerTests/SpaceTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="LexerTests/StringTest.hpp" ex="false" tool="3" flavor2="0">
@@ -98,6 +103,11 @@
       <item path="NumberConstruct.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserConstructs/IdentifierConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/KeywordLetConstruct.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -118,6 +128,8 @@
             flavor2="0">
       </item>
       <item path="ParserStatements/EndStatement.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ParserStatements/LetStatement.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserStatements/WriteStatement.hpp"
             ex="false"
@@ -165,6 +177,8 @@
       </item>
       <item path="LexerTests/NumberTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="LexerTests/OperatorTest.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="LexerTests/SpaceTest.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="LexerTests/StringTest.hpp" ex="false" tool="3" flavor2="0">
@@ -174,6 +188,11 @@
       <item path="NumberConstruct.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserConstructs/IdentifierConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/KeywordLetConstruct.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -194,6 +213,8 @@
             flavor2="0">
       </item>
       <item path="ParserStatements/EndStatement.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ParserStatements/LetStatement.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserStatements/WriteStatement.hpp"
             ex="false"

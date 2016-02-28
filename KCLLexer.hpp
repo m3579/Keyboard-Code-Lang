@@ -31,6 +31,8 @@ using namespace lexer;
 using namespace scanner;
 using namespace token;
 
+// This map is declared and populated in the global scope in this file
+// because multiple files use it
 std::map<std::string, std::string> textToTTypeMap;
 void populateTextToTTypeMap();
 
