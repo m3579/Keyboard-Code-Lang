@@ -29,6 +29,8 @@ void addEndTest(Lexer& lexr)
 {
     lexr.addTest(
         [] (Scanner& sc) {
+            std::cout << "Running End test...\n";
+            
             if (sc.getCurrentChar() == '\0') {
                 sc.finished = true;
                 return Token(sc.getLineNumber(), sc.getColumnNumber(), "\0", TType::End);

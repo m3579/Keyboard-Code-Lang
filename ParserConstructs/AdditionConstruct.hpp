@@ -21,7 +21,7 @@
 
 #include <Construct.hpp>
 
-#include "OperatorPlusConstruct.hpp"
+#include "OperatorAddConstruct.hpp"
 #include "ValueConstruct.hpp"
 
 using namespace ast;
@@ -39,7 +39,7 @@ SP<Construct> addition()
     operand2->name = "Operand 2";
     
     std::vector<SP<Construct>> addition_constr_components {
-        operand1, operator_plus(), operand2
+        operand1, operator_add(), operand2
     };
     
     SP<Construct> addition_constr(new Construct("Plus", addition_constr_components, 0, 0));

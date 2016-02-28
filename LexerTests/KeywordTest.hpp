@@ -33,6 +33,8 @@ void addKeywordTest(Lexer& lexr)
 {
     lexr.addTest(
         [] (Scanner& sc) {
+            std::cout << "Running Keyword test...\n";
+            
             char c = sc.getCurrentChar();
             if (KEYWORD_START_CHARS.find(c) != std::string::npos) {
                 sc.startCountingMovements();

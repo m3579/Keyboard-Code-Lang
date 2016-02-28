@@ -31,8 +31,9 @@ const char STRING_START_END_CHAR = '"';
 void addStringTest(Lexer& lexr)
 {
     lexr.addTest(
-        [] (Scanner& sc)
-        {
+        [] (Scanner& sc) {
+            std::cout << "Running String test...\n";
+            
             char c = sc.getCurrentChar();
             if (c == STRING_START_END_CHAR) {
                 int lineNumber = sc.getLineNumber();

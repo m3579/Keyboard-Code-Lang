@@ -50,6 +50,8 @@ namespace NType
         createNodeType(Subtract);
         createNodeType(Multiply);
         createNodeType(Divide);
+        
+        createNodeType(Assign);
     }
     
     createNodeType(End);

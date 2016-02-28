@@ -7,8 +7,9 @@ build/Debug/MinGW-Windows/keyboardcode.o: keyboardcode.cpp \
  LexerTests/EndTest.hpp TokenTypes.hpp \
  ../../CodeBlocks/LittleLLVM/TokenType.h LexerTests/IdentifierTest.hpp \
  LexerTests/KeywordTest.hpp LexerTests/NumberTest.hpp \
- LexerTests/StringTest.hpp utilities.hpp LexerTests/SpaceTest.hpp \
- KCLParser.hpp ../../CodeBlocks/LittleLLVM/include/Parser.hpp \
+ LexerTests/StringTest.hpp utilities.hpp LexerTests/OperatorTest.hpp \
+ LexerTests/SpaceTest.hpp KCLParser.hpp \
+ ../../CodeBlocks/LittleLLVM/include/Parser.hpp \
  ../../CodeBlocks/LittleLLVM/include/SyntaxTreeComponent.hpp \
  ../../CodeBlocks/LittleLLVM/include/SmartPointer.hpp \
  ../../CodeBlocks/LittleLLVM/include/SyntaxTree.hpp \
@@ -36,8 +37,12 @@ build/Debug/MinGW-Windows/keyboardcode.o: keyboardcode.cpp \
  ParserConstructs/StringConstruct.hpp \
  ParserConstructs/ExpressionConstruct.hpp \
  ParserConstructs/AdditionConstruct.hpp \
- ParserConstructs/OperatorPlusConstruct.hpp \
- ParserConstructs/ValueConstruct.hpp ParserStatements/EndStatement.hpp
+ ParserConstructs/OperatorAddConstruct.hpp \
+ ParserConstructs/ValueConstruct.hpp ParserStatements/LetStatement.hpp \
+ ParserConstructs/KeywordLetConstruct.hpp \
+ ParserConstructs/IdentifierConstruct.hpp \
+ ParserConstructs/OperatorAssignConstruct.hpp \
+ ParserStatements/EndStatement.hpp
 
 ../../CodeBlocks/LittleLLVM/utilities.h:
 
@@ -66,6 +71,8 @@ LexerTests/NumberTest.hpp:
 LexerTests/StringTest.hpp:
 
 utilities.hpp:
+
+LexerTests/OperatorTest.hpp:
 
 LexerTests/SpaceTest.hpp:
 
@@ -135,8 +142,16 @@ ParserConstructs/ExpressionConstruct.hpp:
 
 ParserConstructs/AdditionConstruct.hpp:
 
-ParserConstructs/OperatorPlusConstruct.hpp:
+ParserConstructs/OperatorAddConstruct.hpp:
 
 ParserConstructs/ValueConstruct.hpp:
+
+ParserStatements/LetStatement.hpp:
+
+ParserConstructs/KeywordLetConstruct.hpp:
+
+ParserConstructs/IdentifierConstruct.hpp:
+
+ParserConstructs/OperatorAssignConstruct.hpp:
 
 ParserStatements/EndStatement.hpp:

@@ -48,6 +48,8 @@ namespace TType
         createTokenType(Minus);
         createTokenType(Asterisk);
         createTokenType(ForwardSlash);
+    
+        createTokenType(Equals);
     }
     
     namespace Whitespace

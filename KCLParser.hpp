@@ -27,6 +27,7 @@
 #include "KCLLexer.hpp"
 
 #include "ParserStatements/WriteStatement.hpp"
+#include "ParserStatements/LetStatement.hpp"
 #include "ParserStatements/EndStatement.hpp"
 
 using namespace parser;
@@ -45,6 +46,9 @@ Parser getParser(Lexer lexr)
     
     // Write statement
     parser.addConstruct(writeStatement());
+    
+    // Let statement
+    parser.addConstruct(letStatement());
     
     // End
     parser.addConstruct(endStatement());

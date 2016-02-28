@@ -30,7 +30,7 @@ using namespace pointer;
 int main(int argc, char* argv[])
 {   
     try {
-        Parser parser = getParser(getLexer("write hello"));
+        Parser parser = getParser(getLexer("let hello = \"Hello!\""));
         SP<SyntaxTree> tree(parser.createSyntaxTree());
         tree->print("");    
     }

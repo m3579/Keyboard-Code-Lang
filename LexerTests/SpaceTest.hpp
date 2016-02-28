@@ -29,6 +29,8 @@ void addSpaceTest(Lexer& lexr)
 {
     lexr.addTest(
         [] (Scanner& sc) {
+            std::cout << "Running Space test...\n";
+            
             char c = sc.getCurrentChar();
             if (c == ' ') {
                 int lineNumber = sc.getLineNumber();

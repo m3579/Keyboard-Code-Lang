@@ -43,6 +43,7 @@ void populateTextToTTypeMap();
 #include "LexerTests/KeywordTest.hpp"
 #include "LexerTests/NumberTest.hpp"
 #include "LexerTests/StringTest.hpp"
+#include "LexerTests/OperatorTest.hpp"
 #include "LexerTests/SpaceTest.hpp"
 
 /**
@@ -56,19 +57,31 @@ Lexer getLexer(std::string source)
 {
     Lexer lexr(source);
     
+    std::cout << "Creating lexer...\n\n";
+    
     populateTextToTTypeMap();
     
-    // Add test to the lexer
+    // Add tests to the lexer
+    
+    // Identifiers
     addIdentifierTest(lexr);
     
+    // Keywords
     addKeywordTest(lexr);
     
+    // Numbers
     addNumberTest(lexr);
     
+    // Strings
     addStringTest(lexr);
     
+    // Operators
+    addOperatorTest(lexr);
+    
+    // Spaces
     addSpaceTest(lexr);
     
+    // End ("\0")
     addEndTest(lexr);
     
     return lexr;

@@ -34,6 +34,8 @@ void addIdentifierTest(Lexer& lexr)
 {
     lexr.addTest(
         [] (Scanner& sc) {
+            std::cout << "Running Identifier test...\n";
+            
             char c = sc.getCurrentChar();
             if (IDENTIFIER_START_CHARS.find(c) != std::string::npos) {
                 sc.startCountingMovements();

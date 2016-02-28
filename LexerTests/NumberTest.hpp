@@ -33,6 +33,8 @@ void addNumberTest(Lexer& lexr)
     // TODO: add support for decimal point and negative sign
     lexr.addTest(
         [] (Scanner& sc) {
+            std::cout << "Running Number test...\n";
+            
             char c = sc.getCurrentChar();
             if (NUMBER_CHARS.find(c) != std::string::npos) {
                 int lineNumber = sc.getLineNumber();

@@ -20,7 +20,8 @@
         <itemPath>ParserConstructs/KeywordLetConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/KeywordWriteConstruct.hpp</itemPath>
         <itemPath>NumberConstruct.hpp</itemPath>
-        <itemPath>ParserConstructs/OperatorPlusConstruct.hpp</itemPath>
+        <itemPath>ParserConstructs/OperatorAddConstruct.hpp</itemPath>
+        <itemPath>ParserConstructs/OperatorAssignConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/StringConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/ValueConstruct.hpp</itemPath>
         <itemPath>ParserConstructs/WhitespaceConstruct.hpp</itemPath>
@@ -131,7 +132,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="ParserConstructs/OperatorPlusConstruct.hpp"
+      <item path="ParserConstructs/OperatorAddConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/OperatorAssignConstruct.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -236,7 +242,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="ParserConstructs/OperatorPlusConstruct.hpp"
+      <item path="ParserConstructs/OperatorAddConstruct.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="ParserConstructs/OperatorAssignConstruct.hpp"
             ex="false"
             tool="3"
             flavor2="0">

@@ -25,16 +25,18 @@ using namespace token;
 
 std::map<std::string, std::string> operatorToTTypeMap;
 
-void addTest(Lexer& lexr)
+void addOperatorTest(Lexer& lexr)
 {
     operatorToTTypeMap["+"] = TType::Operators::Plus;
     operatorToTTypeMap["-"] = TType::Operators::Minus;
-    operatorToTTypeMap["*"] = TType::Operators::Multiply;
-    operatorToTTypeMap["/"] = TType::Operators::Divide;
+    operatorToTTypeMap["*"] = TType::Operators::Asterisk;
+    operatorToTTypeMap["/"] = TType::Operators::ForwardSlash;
+    operatorToTTypeMap["="] = TType::Operators::Equals;
     
     lexr.addTest(
-        [] (Scanner& sc)
-        {
+        [] (Scanner& sc) {
+            std::cout << "Running Operator test...\n";
+            
             std::string s(1, sc.getCurrentChar());
             if (operatorToTTypeMap.find(s) != operatorToTTypeMap.end()) {
                 return Token(sc.getLineNumber(), sc.getColumnNumber(), s, operatorToTTypeMap[s]);

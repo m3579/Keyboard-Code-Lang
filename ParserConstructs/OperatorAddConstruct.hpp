@@ -1,7 +1,7 @@
 /*
- * OperatorPlusConstruct.hpp
+ * OperatorAddConstruct.hpp
  *
- * /KeyboardCodeLang/ParserConstructs/OperatorPlusConstruct.hpp
+ * /KeyboardCodeLang/ParserConstructs/OperatorAddConstruct.hpp
  *
  *       Author: Mihir Kasmalkar
  * Date created: Feb 27, 2016
@@ -16,22 +16,22 @@
  *
  */
 
-#ifndef OPERATORPLUSCONSTRUCT_HPP
-#define OPERATORPLUSCONSTRUCT_HPP
+#ifndef OPERATORADDCONSTRUCT_HPP
+#define OPERATORADDCONSTRUCT_HPP
 
 #include <Construct.hpp>
 
 using namespace ast;
 
-SP<Construct> operator_plus()
+SP<Construct> operator_add()
 {
-    SP<Construct> plus_constr(new Construct("Plus", TType::Operators::Plus, NType::Operators::Add, 0, 0));
+    SP<Construct> add_constr(new Construct("Operator - add", TType::Operators::Plus, NType::Operators::Add, 0, 0));
     
-    SP<ConstructTreeFormNode> plus_treeForm(new ConstructTreeFormNode("Plus"));
+    SP<ConstructTreeFormNode> add_treeForm(new ConstructTreeFormNode("Add"));
     
-    plus_constr->treeForm = plus_treeForm;
+    add_constr->treeForm = add_treeForm;
     
-    return plus_constr;
+    return add_constr;
 }
 
 
