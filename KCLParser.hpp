@@ -45,20 +45,8 @@ Parser getParser(Lexer lexr)
     // Write statement
     parser.addConstruct(writeStatement());
     
-    // Let keyword
-    SP<Construct> let_constr(new Construct("Keyword - 'let'", TType::Keywords::Let, NType::NOT_USED_IN_AST, 0, 0));
-    
-    SP<ConstructTreeFormNode> let_treeForm(new ConstructTreeFormNode("Keyword - 'let'"));
-    let_constr->treeForm = let_treeForm;
-    
     // End
-    SP<Construct> end_constr(new Construct("End", TType::End, NType::End, 
-            [] (TokenManager& tm) { tm.exit = true; }, 0));
-    
-    SP<ConstructTreeFormNode> end_treeForm(new ConstructTreeFormNode("End"));
-    end_constr->treeForm = end_treeForm;
-    
-    parser.addConstruct(end_constr);
+    parser.addConstruct(endStatement());
     
     return parser;
 }

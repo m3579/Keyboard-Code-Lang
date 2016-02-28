@@ -27,20 +27,15 @@
 
 #include <Lexer.hpp>
 
-#include "TokenTypes.hpp"
+#include "LexerTests/EndTest.hpp"
+#include "LexerTests/IdentifierTest.hpp"
+#include "LexerTests/KeywordTest.hpp"
+#include "LexerTests/NumberTest.hpp"
 
 using namespace lexer;
 using namespace scanner;
 using namespace token;
 
-
-const std::string IDENTIFIER_START_CHARS = "abcdefghijklmnopqrstuvwxyzQBCDEFGHIJKLMNOPQRSTUVWXYZ";
-const std::string IDENTIFIER_CHARS = IDENTIFIER_START_CHARS + "0123456789";
-
-const std::string NUMBER_CHARS = "0123456789";
-
-const std::string KEYWORD_START_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const std::string KEYWORD_CHARS = KEYWORD_START_CHARS + "0123456789";
 
 
 std::map<std::string, std::string> textToTTypeMap;
@@ -60,132 +55,20 @@ Lexer getLexer(std::string source)
     
     populateTextToTTypeMap();
     
-    // TESTING
-    
-    // This test is used in testing the lexer; it simply sees if the lexer is
-    // at the lowercase letter a
-//    lexr.addTest(
-//        [] (Scanner& sc) {
-//             if (sc.getCurrentChar() == 'a') {
-//                std::cout << "Found letter a in lexer\n";
-//                return Token(sc.getLineNumber(), sc.getColumnNumber(), "a", TType::Testing::LetterA);
-//            }
-//            return Token();
-//        }
-//    );
-    
-    // END TESTING
-    
     // Identifier
-    lexr.addTest(
-        [] (Scanner& sc) {
-            char c = sc.getCurrentChar();
-            if (IDENTIFIER_START_CHARS.find(c) != std::string::npos) {
-                sc.startCountingMovements();
-                
-                int lineNumber = sc.getLineNumber();
-                int columnNumber = sc.getColumnNumber();
-                std::string tokenString(1, c);
-                
-                while (IDENTIFIER_CHARS.find(sc.fetchNextChar()) != std::string::npos) {
-                    tokenString += sc.moveToNextChar();
-                }
-                
-                // If identifier is not in keyword-TokenType map
-                // (hence, if identifier is not a keyword)
-                if (textToTTypeMap.find(tokenString) == textToTTypeMap.end()) {
-                    return Token(lineNumber, columnNumber, tokenString, TType::Identifier);
-                }
-                else {
-                    // Move the scanner back to the beginning of the word
-                    sc.reset();
-                }
-            }
-            
-            return Token();
-        }
-    );
-    
-    // Number
-    // TODO: add support for decimal point and negative sign
-    lexr.addTest(
-        [] (Scanner& sc) {
-            char c = sc.getCurrentChar();
-            if (NUMBER_CHARS.find(c) != std::string::npos) {
-                int lineNumber = sc.getLineNumber();
-                int columnNumber = sc.getColumnNumber();
-                std::string tokenString(1, c);
-                
-                while (NUMBER_CHARS.find(sc.fetchNextChar()) != std::string::npos) {
-                    tokenString += sc.moveToNextChar();
-                }
-                
-                return Token(lineNumber, columnNumber, tokenString, TType::Values::Number);
-            }
-            
-            return Token();
-        }
-    );
+    addIdentifierTest(lexr);
     
     // Keywords
-    lexr.addTest(
-        [] (Scanner& sc) {
-            char c = sc.getCurrentChar();
-            if (KEYWORD_START_CHARS.find(c) != std::string::npos) {
-                sc.startCountingMovements();
-                
-                std::string tokenString(1, c);
-                int lineNumber = sc.getLineNumber();
-                int columnNumber = sc.getColumnNumber();
-                
-                while (KEYWORD_CHARS.find(sc.fetchNextChar()) != std::string::npos) {
-                    tokenString += sc.moveToNextChar();
-                }
-                
-                if (textToTTypeMap.find(tokenString) != textToTTypeMap.end()) {
-                    std::cout << "Found |" << textToTTypeMap[tokenString] << "|\n";
-                    return Token(lineNumber, columnNumber, tokenString, textToTTypeMap[tokenString]);
-                }
-                else {
-                    sc.reset();
-                }
-            }
-            
-            return Token();
-        }
-    );
+    addKeywordTest(lexr);
+    
+    // Number
+    addNumberTest(lexr);
     
     // Space
-    lexr.addTest(
-        [] (Scanner& sc) {
-            char c = sc.getCurrentChar();
-            if (c == ' ') {
-                int lineNumber = sc.getLineNumber();
-                int columnNumber = sc.getColumnNumber();
-                std::string tokenString(1, c);
-                
-                while (sc.fetchNextChar() == ' ') {
-                    tokenString += sc.moveToNextChar();
-                }
-                
-                return Token(lineNumber, columnNumber, tokenString, TType::Whitespace::Space);
-            }
-            
-            return Token();
-        }
-    );
+    addSpaceTest(lexr);
     
     // End
-    lexr.addTest(
-        [] (Scanner& sc) {
-            if (sc.getCurrentChar() == '\0') {
-                sc.finished = true;
-                return Token(sc.getLineNumber(), sc.getColumnNumber(), "\0", TType::End);
-            }
-            
-            return Token();
-        }
-    );
+    addEndTest(lexr);
     
     return lexr;
 }
